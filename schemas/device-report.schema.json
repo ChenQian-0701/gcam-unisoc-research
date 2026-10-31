@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GCam camera capability report",
+  "type": "object",
+  "required": [
+    "model",
+    "android",
+    "target_apk_sha256",
+    "cameras"
+  ],
+  "properties": {
+    "model": {
+      "type": "string"
+    },
+    "android": {
+      "type": "string"
+    },
+    "firmware": {
+      "type": "string"
+    },
+    "target_apk_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "cameras": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "formats",
+          "raw_verified",
+          "manual_control_verified"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "formats": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "raw_verified": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "manual_control_verified": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
